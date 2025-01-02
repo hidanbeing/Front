@@ -1,13 +1,6 @@
 import React from 'react';
+import AppRoutes from './routes/AppRoutes.tsx';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      app
-      </header>
-    </div>
-  );
-}
+const App = () => <AppRoutes />;
 
 export default App;

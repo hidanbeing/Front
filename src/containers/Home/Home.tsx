@@ -5,6 +5,10 @@ function Home() {
     <div className="Home">
       <header className="Home-header">
       Home
+      Home
+      Home
+      Home
+      Home
       </header>
     </div>
   );
