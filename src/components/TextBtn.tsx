@@ -17,7 +17,7 @@ import "../styles/text.scss"
 
 //play btn
 
-export const PlayBtn = () =>{
+export const PlayBtn : React.FC = () =>{
     return (
     <div className='play-btn'>
         <img src={Play_blue} className='alpabet'/>
@@ -29,7 +29,7 @@ export const PlayBtn = () =>{
     );
 }
 
-export const CreateBtn = () =>{
+export const CreateBtn : React.FC = () =>{
     return (
     <div className='create-btn'>
         <img src={Heart_blue} className='alpabet'/>
@@ -43,7 +43,7 @@ export const CreateBtn = () =>{
     );
 }
 
-export const InviteBtn = () =>{
+export const InviteBtn : React.FC = () =>{
     return (
     <div className='invite-btn'>
         <img src={Exclamation_blue} className='alpabet'/>
