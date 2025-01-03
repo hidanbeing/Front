@@ -1,15 +1,12 @@
 import React from 'react';
+import TitleLogo from '../../components/TitleLogo.tsx';
+import Header from '../../components/Header.tsx';
 
 function Home() {
   return (
     <div className="Home">
-      <header className="Home-header">
-      Home
-      Home
-      Home
-      Home
-      Home
-      </header>
+      <TitleLogo/>
+      <Header/>
     </div>
   );
 }
