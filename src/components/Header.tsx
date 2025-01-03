@@ -8,7 +8,7 @@ import E_pink  from "../assets/alpabet_pink/E.png"
 import N_pink  from "../assets/alpabet_pink/N.png"
 import G_pink  from "../assets/alpabet_pink/G.png"
 
-import "../styles/titleLogo.scss"
+import "../styles/text.scss"
 
 function Header() {
   return (
