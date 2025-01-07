@@ -1,0 +1,28 @@
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+   
+    .layout-header {
+        display: flex;
+        align-items: center; 
+        justify-content: space-between; 
+        padding: 30px; 
+        box-sizing: border-box;
+        height: 12%;
+    }
+  
+    .layout-content {
+      display: flex;
+      justify-content: center;
+    //   align-items: center;
+      height: 88%; 
+  
+      img {
+        width: 85%; 
+        height: 95%;
+      }
+    }
+  }
+  
