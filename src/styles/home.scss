@@ -1,8 +1,20 @@
+.home{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo, .box, .btn{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.box{
+    margin: 20px 0px;
 }
 
 .btn{

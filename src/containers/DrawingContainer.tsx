@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Canvas from "../components/Canvas";
-import Toolbar from "../components/Toolbar";
-import ChatBox from "../components/ChatBox";
-import PlayerInfo from "../components/PlayerInfo";
+import Canvas from "../components/Canvas.tsx";
+import Toolbar from "../components/Toolbar.tsx";
+import ChatBox from "../components/ChatBox.tsx";
+import PlayerInfo from "../components/PlayerInfo.tsx";
 
 const DrawingContainer: React.FC = () => {
   const [color, setColor] = useState("#000000");
