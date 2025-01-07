@@ -6,17 +6,18 @@ import Test from '../containers/Test.tsx';
 import Home from '../containers/Home/Home.tsx';
 
 const AppRoute = () => {
-    return(
+  return (
     <Router>
-        <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/test' element={<Test/>}/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/test" element={<Test />} />
 
-            <Route path="/" element={<Layout />}>
-                <Route path="lobby" element={<Lobby />} />
-            </Route>
-        </Routes> 
-    </Router>);
-}
+        <Route path="/" element={<Layout />}>
+          <Route path="lobby" element={<Lobby />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+};
 
 export default AppRoute;

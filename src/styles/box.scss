@@ -8,3 +8,28 @@ $blue2-color: #50578F;
     height: 200px;
     border-radius: 10px;
 }
+
+.character-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .text{
+        margin-top: -20px;
+        text-align: center;
+        font-size: 30px;
+        color: $blue2-color;
+    }
+    img{
+        width: 120px;
+    }
+    .select-div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        svg{
+            width: 100px;
+            color: $blue2-color;
+        }
+    }
+}
