@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from 'react';
 
 interface CanvasProps {
   color: string;
@@ -14,14 +14,14 @@ const Canvas: React.FC<CanvasProps> = ({ color, socket }) => {
     const canvas = canvasRef.current!;
     canvas.width = 800;
     canvas.height = 600;
-    const ctx = canvas.getContext("2d")!;
-    ctx.lineCap = "round";
+    const ctx = canvas.getContext('2d')!;
+    ctx.lineCap = 'round';
     ctx.lineWidth = 2;
     ctxRef.current = ctx;
 
-    socket.onmessage = (event) => {
+    socket.onmessage = event => {
       const message = JSON.parse(event.data);
-      if (message.type === "draw") {
+      if (message.type === 'draw') {
         const { x, y, color, isStart } = message.data;
 
         if (isStart) {
@@ -47,9 +47,9 @@ const Canvas: React.FC<CanvasProps> = ({ color, socket }) => {
 
     socket.send(
       JSON.stringify({
-        type: "draw",
+        type: 'draw',
         data: { x: offsetX, y: offsetY, color, isStart: true },
-      })
+      }),
     );
   };
 
@@ -71,9 +71,9 @@ const Canvas: React.FC<CanvasProps> = ({ color, socket }) => {
 
     socket.send(
       JSON.stringify({
-        type: "draw",
+        type: 'draw',
         data: { x: offsetX, y: offsetY, color, isStart: false },
-      })
+      }),
     );
   };
 
@@ -85,9 +85,9 @@ const Canvas: React.FC<CanvasProps> = ({ color, socket }) => {
       onMouseLeave={finishDrawing}
       onMouseMove={draw}
       style={{
-        border: "2px solid #ccc",
-        borderRadius: "8px",
-        background: "#fff",
+        border: '2px solid #ccc',
+        borderRadius: '8px',
+        background: '#fff',
       }}
     />
   );

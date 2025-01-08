@@ -6,8 +6,9 @@ import Test from '../containers/Test.tsx';
 import Home from '../containers/Home/Home.tsx';
 import RoomSetting from '../containers/RoomSetting.tsx';
 import Ready from '../containers/Ready/Ready.tsx';
+import Game from '../containers/Game.tsx';
 
-const AppRoute = () => {
+const AppRoute: React.FC = () => {
   return (
     <Router>
       <Routes>
@@ -18,6 +19,7 @@ const AppRoute = () => {
           <Route path="lobby" element={<Lobby />} />
           <Route path="roomsetting" element={<RoomSetting />} />
           <Route path="ready" element={<Ready />} />
+          <Route path="game" element={<Game />} />
         </Route>
       </Routes>
     </Router>

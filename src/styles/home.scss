@@ -20,8 +20,8 @@
 }
 
 .btn {
-  background-color: black;
-  border: none;
+  pointer-events: auto;
+  z-index: 10;
 }
 
 .lobby,
