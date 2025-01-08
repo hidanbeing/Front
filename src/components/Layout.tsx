@@ -12,6 +12,7 @@ const Layout: React.FC = () => {
       <main className="layout-content">
         <Outlet />
       </main>
+      <footer className="layout-footer"></footer>
     </div>
   );
 };
