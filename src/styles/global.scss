@@ -1,15 +1,15 @@
+$pink1-color: #ffd4e1;
+$pink2-color: #ff89ac;
 
-$pink1-color: #FFD4E1;
-$pink2-color: #FF89AC;
+$blue1-color: #bac1ff;
+$blue2-color: #50578f;
 
-$blue1-color: #BAC1FF;
-$blue2-color: #50578F;
-
-$bk-color : #000000;
+$bk-color: #000000;
 
 body {
   margin: 0;
   padding: 0;
   background-color: $bk-color;
-  color: white;
+  // color: white;
+  font-family: 'Jersey 15', serif;
 }

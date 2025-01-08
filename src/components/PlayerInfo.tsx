@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface PlayerInfoProps {
   playerName: string;
@@ -16,10 +16,10 @@ const PlayerInfo: React.FC<PlayerInfoProps> = ({ playerName, score }) => {
 
 const styles = {
   container: {
-    border: "1px solid #ccc",
-    padding: "10px",
-    width: "200px",
-    textAlign: "center" as const,
+    border: '1px solid #ccc',
+    padding: '10px',
+    width: '200px',
+    textAlign: 'center' as const,
   },
 };
 

@@ -1,18 +1,18 @@
 import React from 'react';
-import "../styles/layout.scss";
+import '../styles/layout.scss';
 import Header from './Header.tsx';
-import ContentView from '../assets/ContentView.png'
+import { Outlet } from 'react-router-dom';
 
 const Layout: React.FC = () => {
   return (
     <div className="layout">
       <header className="layout-header">
-        <Header/>
+        <Header />
       </header>
       <main className="layout-content">
-        <img src={ContentView}/>
+        <Outlet />
       </main>
-      
+      <footer className="layout-footer"></footer>
     </div>
   );
 };

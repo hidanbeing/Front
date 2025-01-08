@@ -1,11 +1,76 @@
-.logo, .box, .btn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn{
-    background-color: black;
-    border: none;
+.logo,
+.box,
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  margin: 30px 0px;
+}
+
+.btn {
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.lobby,
+.ready {
+  // background-color: antiquewhite;
+  width: 90vw;
+  height: 85%;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.room {
+  background-color: #e0e1f6;
+  position: relative;
+  width: 24vw;
+  height: 25vh;
+  border-radius: 10px;
+  box-shadow: 4px 8px 8px hsla(0deg, 0%, 0%, 0.2);
+}
+
+.room-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  height: 70vh;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.user {
+  background-color: #50578f80;
+  position: relative;
+  width: 24vw;
+  height: 25vh;
+  border-radius: 10px;
+  box-shadow: 4px 8px 8px hsla(0deg, 0%, 0%, 0.2);
+}
+
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  height: 70vh;
 }

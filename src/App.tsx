@@ -1,12 +1,14 @@
 import React from "react";
-import DrawingContainer from "./containers/DrawingContainer";
+import DrawingContainer from "./containers/DrawingContainer.tsx";
+import AppRoutes from './routes/AppRoutes.tsx';
 
 const App: React.FC = () => {
   return (
-    <div style={styles.container}>
-      {/* 그림판만 렌더링 */}
-      <DrawingContainer />
-    </div>
+    // <div style={styles.container}>
+    //   {/* 그림판만 렌더링 */}
+    //   <DrawingContainer />
+    // </div>
+    <AppRoutes/>
   );
 };
 

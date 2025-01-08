@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 interface ChatBoxProps {
   onSendMessage: (message: string) => void;
@@ -6,12 +6,12 @@ interface ChatBoxProps {
 }
 
 const ChatBox: React.FC<ChatBoxProps> = ({ onSendMessage, messages }) => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState('');
 
   const handleSend = () => {
-    if (input.trim() !== "") {
+    if (input.trim() !== '') {
       onSendMessage(input.trim());
-      setInput("");
+      setInput('');
     }
   };
 
@@ -25,12 +25,12 @@ const ChatBox: React.FC<ChatBoxProps> = ({ onSendMessage, messages }) => {
           </div>
         ))}
       </div>
-      
+
       {/* 입력 영역 */}
       <div style={styles.inputContainer}>
         <input
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={e => setInput(e.target.value)}
           placeholder="Type your message..."
           style={styles.input}
         />
@@ -44,31 +44,32 @@ const ChatBox: React.FC<ChatBoxProps> = ({ onSendMessage, messages }) => {
 
 const styles = {
   container: {
-    display: "flex",
-    flexDirection: "column" as const,
-    border: "1px solid #ccc",
-    padding: "10px",
-    width: "200px",
+    display: 'flex',
+    flexDirection: 'column' as const,
+    border: '1px solid #ccc',
+    padding: '10px',
+    width: '200px',
   },
   messages: {
     flex: 1,
-    overflowY: "auto" as const,
-    marginBottom: "10px",
+    overflowY: 'auto' as const,
+    marginBottom: '10px',
   },
-  message: { // 메시지 스타일 정의
-    marginBottom: "8px",
+  message: {
+    // 메시지 스타일 정의
+    marginBottom: '8px',
   },
   inputContainer: {
-    display: "flex",
+    display: 'flex',
   },
   input: {
     flex: 1,
-    marginRight: "10px",
-    padding: "5px",
+    marginRight: '10px',
+    padding: '5px',
   },
   button: {
-    padding: "5px 10px",
-    cursor: "pointer",
+    padding: '5px 10px',
+    cursor: 'pointer',
   },
 };
 
