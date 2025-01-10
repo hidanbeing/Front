@@ -22,6 +22,8 @@
 .btn {
   pointer-events: auto;
   z-index: 10;
+  background-color: transparent;
+  border: none;
 }
 
 .lobby,
@@ -73,4 +75,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   height: 70vh;
+}
+
+.character-img {
+  width: 110px;
 }
