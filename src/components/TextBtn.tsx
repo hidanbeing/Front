@@ -13,6 +13,12 @@ import Exclamation_blue from '../assets/alpabet_blue/Exclamation.png';
 import I_blue from '../assets/alpabet_blue/I.png';
 import N_blue from '../assets/alpabet_blue/N.png';
 import V_blue from '../assets/alpabet_blue/V.png';
+
+import R_redpink from '../assets/alpabet_redpink/R.png';
+import O_redpink from '../assets/alpabet_redpink/O.png';
+import M_redpink from '../assets/alpabet_redpink/M.png';
+import S_redpink from '../assets/alpabet_redpink/S.png';
+
 import '../styles/text.scss';
 
 //play btn
@@ -53,6 +59,18 @@ export const InviteBtn: React.FC = () => {
       <img src={I_blue} className="alpabet" />
       <img src={T_blue} className="alpabet" />
       <img src={E_blue} className="alpabet" />
+    </div>
+  );
+};
+
+export const RoomsBtn: React.FC = () => {
+  return (
+    <div className="rooms-btn">
+      <img src={R_redpink} className="alpabet" />
+      <img src={O_redpink} className="alpabet" />
+      <img src={O_redpink} className="alpabet" />
+      <img src={M_redpink} className="alpabet" />
+      <img src={S_redpink} className="alpabet" />
     </div>
   );
 };

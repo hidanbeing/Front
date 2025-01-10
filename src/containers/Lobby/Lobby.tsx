@@ -1,5 +1,10 @@
 import React from 'react';
-import { CreateBtn, InviteBtn, PlayBtn } from '../../components/TextBtn.tsx';
+import {
+  CreateBtn,
+  InviteBtn,
+  PlayBtn,
+  RoomsBtn,
+} from '../../components/TextBtn.tsx';
 import '../../styles/home.scss';
 import { RoomList } from './RoomList.tsx';
 import { Link } from 'react-router-dom';
@@ -7,6 +12,7 @@ import { Link } from 'react-router-dom';
 function Lobby() {
   return (
     <div className="lobby">
+      <RoomsBtn />
       <RoomList />
       <div className="btn-group">
         <Link to="/game" className="btn">
