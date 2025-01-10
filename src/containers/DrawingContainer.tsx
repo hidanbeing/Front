@@ -4,6 +4,13 @@ import Toolbar from '../components/Toolbar.tsx';
 import ChatBox from '../components/ChatBox.tsx';
 import PlayerInfo from '../components/PlayerInfo.tsx';
 
+const characterImages = [
+  require('../assets/character/character1.png'),
+  require('../assets/character/character2.png'),
+  require('../assets/character/character3.png'),
+  require('../assets/character/character4.png'),
+];
+
 const DrawingContainer: React.FC = () => {
   const [color, setColor] = useState('#000000');
   const [messages, setMessages] = useState<{ sender: string; text: string }[]>(
@@ -43,13 +50,20 @@ const DrawingContainer: React.FC = () => {
 
   return (
     <div style={styles.container}>
-      {/* 사이드바: PlayerInfo와 ChatBox */}
+      {/* 좌측 플레이어 리스트 */}
       <div style={styles.sidebar}>
-        <PlayerInfo playerName="Player1" score={100} />
-        <ChatBox onSendMessage={handleSendMessage} messages={messages} />
+        {characterImages.map((image, index) => (
+          <div key={index} style={styles.playerBox}>
+            <PlayerInfo
+              playerName={`Player ${index + 1}`}
+              score={100}
+              image={image} // 이미지 경로 전달
+            />
+          </div>
+        ))}
       </div>
 
-      {/* 메인 영역: Canvas와 Toolbar */}
+      {/* 중앙 캔버스와 툴바 */}
       <div style={styles.main}>
         <Canvas color={color} socket={socket} />
         <Toolbar
@@ -59,6 +73,26 @@ const DrawingContainer: React.FC = () => {
           onClear={() => socket.send(JSON.stringify({ type: 'clear' }))}
         />
       </div>
+
+      {/* 우측 채팅 박스 */}
+      <div style={styles.chatBox}>
+        <div style={styles.chatMessages}>
+          <ChatBox onSendMessage={handleSendMessage} messages={messages} />
+        </div>
+        <div style={styles.chatInput}>
+          <input
+            type="text"
+            placeholder="Type your message..."
+            style={styles.input}
+            onKeyDown={e => {
+              if (e.key === 'Enter') {
+                handleSendMessage((e.target as HTMLInputElement).value);
+                (e.target as HTMLInputElement).value = '';
+              }
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 };
@@ -66,23 +100,65 @@ const DrawingContainer: React.FC = () => {
 const styles = {
   container: {
     display: 'flex',
-    gap: '20px',
-    padding: '20px',
-    height: '100%',
+    flexDirection: 'row',
     width: '100%',
+    height: '100%',
+    boxSizing: 'border-box',
+    padding: '10px',
+    gap: '10px',
   },
   sidebar: {
     display: 'flex',
     flexDirection: 'column' as const,
     gap: '10px',
-    width: '200px',
+    flex: 1,
+    backgroundColor: '#f8f9fa',
+    padding: '10px',
+    borderRadius: '8px',
+  },
+  playerBox: {
+    backgroundColor: '#F2F3FD',
+    borderRadius: '8px',
+    padding: '10px',
+    boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
   },
   main: {
     display: 'flex',
     flexDirection: 'column' as const,
-    gap: '10px',
-    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
+    flex: 6,
+    backgroundColor: '#ffffff',
+    borderRadius: '8px',
+    padding: '20px',
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+  },
+  chatBox: {
+    display: 'flex',
+    flexDirection: 'column' as const,
+    justifyContent: 'space-between',
+    flex: 4,
+    backgroundColor: '#F2F3FD',
+    borderRadius: '8px',
+    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+    padding: '10px',
+  },
+  chatMessages: {
+    flex: 3,
+    overflowY: 'auto' as const,
+    marginBottom: '10px',
+  },
+  chatInput: {
+    display: 'flex',
+    alignItems: 'center',
+    paddingTop: '10px',
+  },
+  input: {
+    flex: 3,
+    padding: '10px',
+    border: '1px solid #ccc',
+    borderRadius: '8px',
+    outline: 'none',
   },
 };
 
