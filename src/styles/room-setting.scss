@@ -1,0 +1,45 @@
+.room-setting-contents {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 항목 간 간격 */
+  padding: 10px;
+  height: auto;
+
+  .setting-item {
+    display: flex;
+    align-items: center;
+    // justify-content: space-between; /* 제목과 입력칸 가로 정렬 */
+    gap: 10px;
+
+    label {
+      width: 30%; /* 제목 너비 */
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      input {
+        width: 20px;
+        margin-left: 10px;
+      }
+    }
+
+    input,
+    select {
+      width: 65%; /* 입력칸 너비 */
+      height: 30px;
+      padding: 5px;
+      border: 1px solid #000;
+      border-radius: 5px;
+    }
+
+    input[type='number'] {
+      text-align: right; /* 숫자 입력 정렬 */
+    }
+  }
+
+  input[disabled] {
+    background-color: #f0f0f0; /* 비활성화된 입력칸 스타일 */
+    cursor: not-allowed;
+  }
+}

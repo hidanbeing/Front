@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 const roomList = [
   { id: 1, name: 'Room 1', player: 2, maxPlayer: 4, status: 'waiting' },
   { id: 2, name: 'Room 2', player: 1, maxPlayer: 4, status: 'waiting' },
@@ -42,15 +42,17 @@ export const RoomList: React.FC = () => {
     <div>
       <div className="room-list">
         {currentRooms.map(room => (
-          <div key={room.id} className="room">
-            <div className="room-name">{room.name}</div>
-            <div className="room-content">
-              <div className="room-player">
-                {room.player}/{room.maxPlayer}
+          <Link to="/ready">
+            <div key={room.id} className="room">
+              <div className="room-name">{room.name}</div>
+              <div className="room-content">
+                <div className="room-player">
+                  {room.player}/{room.maxPlayer}
+                </div>
+                <div className="room-status">{room.status}</div>
               </div>
-              <div className="room-status">{room.status}</div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="pagination">
