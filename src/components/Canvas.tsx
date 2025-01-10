@@ -13,7 +13,7 @@ const Canvas: React.FC<CanvasProps> = ({ color, socket }) => {
   useEffect(() => {
     const canvas = canvasRef.current!;
     canvas.width = 800;
-    canvas.height = 600;
+    canvas.height = 500;
     const ctx = canvas.getContext('2d')!;
     ctx.lineCap = 'round';
     ctx.lineWidth = 2;
@@ -86,8 +86,8 @@ const Canvas: React.FC<CanvasProps> = ({ color, socket }) => {
       onMouseMove={draw}
       style={{
         border: '2px solid #ccc',
-        width: '950px',
-        height: '620px',
+        width: '100%',
+        height: '100%',
         borderRadius: '8px',
         background: '#fff',
       }}

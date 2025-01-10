@@ -1,5 +1,5 @@
-import React from "react";
-import DrawingContainer from "./containers/DrawingContainer.tsx";
+import React from 'react';
+import DrawingContainer from './containers/DrawingContainer.tsx';
 import AppRoutes from './routes/AppRoutes.tsx';
 
 const App: React.FC = () => {
@@ -8,18 +8,18 @@ const App: React.FC = () => {
     //   {/* 그림판만 렌더링 */}
     //   <DrawingContainer />
     // </div>
-    <AppRoutes/>
+    <AppRoutes />
   );
 };
 
 const styles = {
   container: {
-    display: "flex",
-    flexDirection: "column" as const,
-    height: "100vh",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#f9f9f9",
+    display: 'flex',
+    flexDirection: 'column' as const,
+    height: '100vh',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f9f9f9',
   },
 };
 
