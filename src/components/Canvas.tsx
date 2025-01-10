@@ -86,6 +86,8 @@ const Canvas: React.FC<CanvasProps> = ({ color, socket }) => {
       onMouseMove={draw}
       style={{
         border: '2px solid #ccc',
+        width: '950px',
+        height: '620px',
         borderRadius: '8px',
         background: '#fff',
       }}

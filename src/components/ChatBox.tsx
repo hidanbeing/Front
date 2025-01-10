@@ -27,17 +27,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ onSendMessage, messages }) => {
       </div>
 
       {/* 입력 영역 */}
-      <div style={styles.inputContainer}>
-        <input
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          placeholder="Type your message..."
-          style={styles.input}
-        />
-        <button onClick={handleSend} style={styles.button}>
-          Send
-        </button>
-      </div>
+      <div style={styles.inputContainer}></div>
     </div>
   );
 };
@@ -46,9 +36,9 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column' as const,
-    border: '1px solid #ccc',
+    border: 'none',
     padding: '10px',
-    width: '200px',
+    width: '300px',
   },
   messages: {
     flex: 1,
