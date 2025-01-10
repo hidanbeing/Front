@@ -19,7 +19,7 @@ const AppRoute: React.FC = () => {
           <Route path="lobby" element={<Lobby />} />
           <Route path="roomsetting" element={<RoomSetting />} />
           <Route path="ready" element={<Ready />} />
-          <Route path="game" element={<Game />} />
+          <Route path="/game" element={<Game />} />
         </Route>
       </Routes>
     </Router>
