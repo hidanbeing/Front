@@ -45,6 +45,9 @@ function CharacterBox() {
           <IoIosArrowForward size={30} />
         </button>
       </div>
+      <div className="input-div">
+        <input className="input" placeholder="USERNAME" />
+      </div>
     </div>
   );
 }
