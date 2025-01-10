@@ -12,18 +12,18 @@ const PlayerInfo: React.FC<PlayerInfoProps> = ({
   image,
 }) => {
   return (
-    <>
+    <div>
       <img src={image} alt={`${playerName}`} style={styles.image} />
       <h3 style={styles.name}>{playerName}</h3>
       <p style={styles.score}>Score: {score}</p>
-    </>
+    </div>
   );
 };
 
 const styles = {
   image: {
-    width: '250px',
-    height: '50px',
+    width: '50px',
+    // height: '50px',
     marginBottom: '10px',
     borderRadius: '50%', // 이미지를 둥글게 표시
   },

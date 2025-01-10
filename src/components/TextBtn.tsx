@@ -13,13 +13,24 @@ import Exclamation_blue from '../assets/alpabet_blue/Exclamation.png';
 import I_blue from '../assets/alpabet_blue/I.png';
 import N_blue from '../assets/alpabet_blue/N.png';
 import V_blue from '../assets/alpabet_blue/V.png';
+
+import R_redpink from '../assets/alpabet_redpink/R.png';
+import O_redpink from '../assets/alpabet_redpink/O.png';
+import M_redpink from '../assets/alpabet_redpink/M.png';
+import S_redpink from '../assets/alpabet_redpink/S.png';
+import E_redpink from '../assets/alpabet_redpink/E.png';
+import T_redpink from '../assets/alpabet_redpink/T.png';
+import I_redpink from '../assets/alpabet_redpink/I.png';
+import N_redpink from '../assets/alpabet_redpink/N.png';
+import G_redpink from '../assets/alpabet_redpink/G.png';
+
 import '../styles/text.scss';
 
 //play btn
 
 export const PlayBtn: React.FC = () => {
   return (
-    <div className="play-btn">
+    <div className="text-btn">
       <img src={Play_blue} className="alpabet" />
       <img src={P_blue} className="alpabet" />
       <img src={L_blue} className="alpabet" />
@@ -31,7 +42,7 @@ export const PlayBtn: React.FC = () => {
 
 export const CreateBtn: React.FC = () => {
   return (
-    <div className="create-btn">
+    <div className="text-btn">
       <img src={Heart_blue} className="alpabet" />
       <img src={C_blue} className="alpabet" />
       <img src={R_blue} className="alpabet" />
@@ -45,7 +56,7 @@ export const CreateBtn: React.FC = () => {
 
 export const InviteBtn: React.FC = () => {
   return (
-    <div className="invite-btn">
+    <div className="text-btn">
       <img src={Exclamation_blue} className="alpabet" />
       <img src={I_blue} className="alpabet" />
       <img src={N_blue} className="alpabet" />
@@ -53,6 +64,36 @@ export const InviteBtn: React.FC = () => {
       <img src={I_blue} className="alpabet" />
       <img src={T_blue} className="alpabet" />
       <img src={E_blue} className="alpabet" />
+    </div>
+  );
+};
+
+export const RoomsBtn: React.FC = () => {
+  return (
+    <div className="text-btn">
+      <img src={R_redpink} className="alpabet" />
+      <img src={O_redpink} className="alpabet" />
+      <img src={O_redpink} className="alpabet" />
+      <img src={M_redpink} className="alpabet" />
+      <img src={S_redpink} className="alpabet" />
+    </div>
+  );
+};
+
+export const RoomSettingBtn: React.FC = () => {
+  return (
+    <div className="text-btn">
+      <img src={R_redpink} className="alpabet" />
+      <img src={O_redpink} className="alpabet" />
+      <img src={O_redpink} className="alpabet" />
+      <img src={M_redpink} className="alpabet" />{' '}
+      <img src={S_redpink} className="alpabet" />
+      <img src={E_redpink} className="alpabet" />
+      <img src={T_redpink} className="alpabet" />
+      <img src={T_redpink} className="alpabet" />
+      <img src={I_redpink} className="alpabet" />
+      <img src={N_redpink} className="alpabet" />
+      <img src={G_redpink} className="alpabet" />
     </div>
   );
 };
