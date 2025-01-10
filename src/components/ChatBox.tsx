@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './chatbox.scss';
 
 interface ChatBoxProps {
   onSendMessage: (message: string) => void;
@@ -16,51 +17,30 @@ const ChatBox: React.FC<ChatBoxProps> = ({ onSendMessage, messages }) => {
   };
 
   return (
-    <div style={styles.container}>
+    <div className="chatbox-container">
       {/* 메시지 출력 영역 */}
-      <div style={styles.messages}>
+      <div className="chatbox-messages">
         {messages.map((msg, index) => (
-          <div key={index} style={styles.message}>
+          <div key={index} className="chatbox-message">
             <strong>{msg.sender}:</strong> {msg.text}
           </div>
         ))}
       </div>
 
       {/* 입력 영역 */}
-      <div style={styles.inputContainer}></div>
+      <div className="chatbox-input-container">
+        <input
+          value={input}
+          onChange={e => setInput(e.target.value)}
+          placeholder="Type your message..."
+          className="chatbox-input"
+        />
+        <button onClick={handleSend} className="chatbox-button">
+          Send
+        </button>
+      </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    border: 'none',
-    padding: '10px',
-    width: '300px',
-  },
-  messages: {
-    flex: 1,
-    overflowY: 'auto' as const,
-    marginBottom: '10px',
-  },
-  message: {
-    // 메시지 스타일 정의
-    marginBottom: '8px',
-  },
-  inputContainer: {
-    display: 'flex',
-  },
-  input: {
-    flex: 1,
-    marginRight: '10px',
-    padding: '5px',
-  },
-  button: {
-    padding: '5px 10px',
-    cursor: 'pointer',
-  },
 };
 
 export default ChatBox;

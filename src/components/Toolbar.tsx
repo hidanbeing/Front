@@ -1,4 +1,5 @@
 import React from 'react';
+import './toolbar.scss';
 
 interface ToolbarProps {
   onColorChange: (color: string) => void;
@@ -23,50 +24,29 @@ const Toolbar: React.FC<ToolbarProps> = ({
   ];
 
   return (
-    <div style={styles.toolbar}>
+    <div className="toolbar">
       {/* 색상 선택 */}
       {colors.map(color => (
         <button
           key={color}
-          style={{ ...styles.colorButton, backgroundColor: color }}
+          className="color-button"
+          style={{ backgroundColor: color }}
           onClick={() => onColorChange(color)}
         />
       ))}
 
       {/* 도구 버튼 */}
-      <button style={styles.toolButton} onClick={onUndo}>
+      <button className="tool-button" onClick={onUndo}>
         Undo
       </button>
-      <button style={styles.toolButton} onClick={onRedo}>
+      <button className="tool-button" onClick={onRedo}>
         Redo
       </button>
-      <button style={styles.toolButton} onClick={onClear}>
+      <button className="tool-button" onClick={onClear}>
         Clear
       </button>
     </div>
   );
-};
-
-const styles = {
-  toolbar: {
-    display: 'flex',
-    gap: '10px',
-    marginTop: '10px',
-  },
-  colorButton: {
-    width: '30px',
-    height: '30px',
-    borderRadius: '50%',
-    border: 'none',
-    cursor: 'pointer',
-  },
-  toolButton: {
-    padding: '5px 10px',
-    border: 'none',
-    backgroundColor: '#f4f4f4',
-    cursor: 'pointer',
-    borderRadius: '4px',
-  },
 };
 
 export default Toolbar;
