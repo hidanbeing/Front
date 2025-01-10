@@ -6,10 +6,19 @@ $blue2-color: #50578f;
 
 $bk-color: #000000;
 
+@font-face {
+  font-family: 'DungGeunMo';
+  font-weight: normal;
+  src: url('../assets/fonts/DungGeunMo.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: $bk-color;
-  // color: white;
-  font-family: 'Jersey 15', serif;
+  font-family: 'DungGeunMo', serif;
+}
+
+* {
+  font-family: 'DungGeunMo', serif;
 }

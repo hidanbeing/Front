@@ -49,11 +49,13 @@ export const RoomList: React.FC = () => {
     <div className="room-list">
       {roomList.map(room => (
         <div key={room.id} className="room">
-          <div className="room-name">{room.name}</div>
-          <div className="room-player">
-            {room.player}/{room.maxPlayer}
+          <div className="room-name">{room.name}안녕</div>
+          <div className="room-content">
+            <div className="room-player">
+              {room.player}/{room.maxPlayer}
+            </div>
+            <div className="room-status">{room.status}</div>
           </div>
-          <div className="room-status">{room.status}</div>
         </div>
       ))}
     </div>

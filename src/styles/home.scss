@@ -39,12 +39,27 @@
 }
 
 .room {
-  background-color: #e0e1f6;
+  background-color: #ae445a80;
   position: relative;
   width: 24vw;
-  height: 25vh;
+  height: 15vh;
   border-radius: 10px;
   box-shadow: 4px 8px 8px hsla(0deg, 0%, 0%, 0.2);
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .room-name {
+    background-color: #e8bcb9;
+    border-radius: 10px;
+    box-shadow: 4px 8px 8px hsla(0deg, 0%, 0%, 0.2);
+    padding: 10px;
+  }
+  .room-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
 }
 
 .room-list {
