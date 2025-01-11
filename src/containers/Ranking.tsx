@@ -1,50 +1,27 @@
 import React from 'react';
-import R_yellow from '../assets/alpabet_yellow/R.png';
-import A_yellow from '../assets/alpabet_yellow/A.png';
-import N_yellow from '../assets/alpabet_yellow/N.png';
-import K_yellow from '../assets/alpabet_yellow/K.png';
-import I_yellow from '../assets/alpabet_yellow/I.png';
-import G_yellow from '../assets/alpabet_yellow/G.png';
-import Exclamation_yellow from '../assets/alpabet_yellow/Exclamation.png';
-import Heart_yellow from '../assets/alpabet_yellow/Heart.png';
-import W_yellow from '../assets/alpabet_yellow/W.png';
-import './ranking.scss';
+import '../styles/ranking.scss';
+import banner from '../assets/ranking/banner.png';
 
 const Ranking: React.FC = () => {
   return (
     <div className="ranking-container">
-      {/* RANKING 텍스트 */}
-      <div className="text-container">
-        <img src={Heart_yellow} alt="Heart" className="alpabet" />
-        <img src={R_yellow} alt="R" className="alpabet" />
-        <img src={A_yellow} alt="A" className="alpabet" />
-        <img src={N_yellow} alt="N" className="alpabet" />
-        <img src={K_yellow} alt="K" className="alpabet" />
-        <img src={I_yellow} alt="I" className="alpabet" />
-        <img src={N_yellow} alt="N" className="alpabet" />
-        <img src={G_yellow} alt="G" className="alpabet" />
-        <img src={Heart_yellow} alt="Heart" className="alpabet" />
+      {/* 배너 */}
+      <div className="ranking-banner">
+        <img src={banner} alt="Ranking Banner" />
       </div>
-
-      {/* 랭킹 박스 */}
-      <div className="ranking-box-container">
-        <div className="rank-box second">
-          <span>2</span>
+      {/* 파란 박스 */}
+      <div className="ranking-box">
+        <div className="ranking-content">
+          <h3>
+            <li>Player 1</li>
+            <li>Player 2</li>
+            <li>Player 3</li>
+            <li>Player 4</li>
+            <li>Player 5</li>
+            <li>Player 6</li>
+            <li>Player 7</li>
+          </h3>
         </div>
-        <div className="rank-box first">
-          <span>1</span>
-        </div>
-        <div className="rank-box third">
-          <span>3</span>
-        </div>
-      </div>
-
-      {/* WIN 텍스트 */}
-      <div className="text-container">
-        <img src={W_yellow} alt="W" className="alpabet" />
-        <img src={I_yellow} alt="I" className="alpabet" />
-        <img src={N_yellow} alt="N" className="alpabet" />
-        <img src={Exclamation_yellow} alt="Exclamation" className="alpabet" />
       </div>
     </div>
   );

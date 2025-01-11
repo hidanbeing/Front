@@ -1,5 +1,5 @@
 import React from 'react';
-import './toolbar.scss';
+import '../styles/Game/toolbar.scss';
 
 interface ToolbarProps {
   onColorChange: (color: string) => void;

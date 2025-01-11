@@ -1,5 +1,5 @@
 import React from 'react';
-import './playerinfo.scss';
+import '../styles/Game/playerinfo.scss';
 
 interface PlayerInfoProps {
   playerName: string;
