@@ -8,7 +8,7 @@ import G_yellow from '../assets/alpabet_yellow/G.png';
 import Exclamation_yellow from '../assets/alpabet_yellow/Exclamation.png';
 import Heart_yellow from '../assets/alpabet_yellow/Heart.png';
 import W_yellow from '../assets/alpabet_yellow/W.png';
-import './ranking.scss';
+import '../styles/ranking.scss';
 
 const Ranking: React.FC = () => {
   return (
