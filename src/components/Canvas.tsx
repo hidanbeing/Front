@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import './canvas.scss';
+import '../styles/Game/canvas.scss';
 
 interface CanvasProps {
   color: string;

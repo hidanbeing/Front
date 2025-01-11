@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './chatbox.scss';
+import '../styles/Game/chatbox.scss';
 
 interface ChatBoxProps {
   onSendMessage: (message: string) => void;
