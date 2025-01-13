@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import '../styles/Game/canvas.scss';
 
 interface CanvasProps {
   color: string;
@@ -84,13 +85,7 @@ const Canvas: React.FC<CanvasProps> = ({ color, socket }) => {
       onMouseUp={finishDrawing}
       onMouseLeave={finishDrawing}
       onMouseMove={draw}
-      style={{
-        border: '2px solid #ccc',
-        width: '100%',
-        height: '100%',
-        borderRadius: '8px',
-        background: '#fff',
-      }}
+      className="canvas"
     />
   );
 };

@@ -1,0 +1,26 @@
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.color-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.tool-button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #ddd;
+  }
+}
