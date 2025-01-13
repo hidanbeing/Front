@@ -54,15 +54,27 @@ const DrawingContainer: React.FC = () => {
     <div className="drawing-container">
       {/* 좌측 플레이어 리스트 */}
       <div className="sidebar">
-        {characterImages.map((image, index) => (
-          <div key={index} className="player-box">
-            <PlayerInfo
-              playerName={`Player ${index + 1}`}
-              score={100}
-              image={image} // 이미지 경로 전달
-            />
-          </div>
-        ))}
+        {/* 내 정보 */}
+        <div className="player-box my-info">
+          <PlayerInfo
+            playerName="Me"
+            score={100}
+            image={require('../assets/character/character1.png')}
+          />
+        </div>
+
+        {/* 다른 플레이어 정보 */}
+        <div className="ranking-list">
+          {characterImages.map((image, index) => (
+            <div key={index} className="player-box player-info-horizontal">
+              <PlayerInfo
+                playerName={`Player ${index + 2}`}
+                score={240 - index * 10}
+                image={image}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* 중앙 캔버스와 툴바 */}
