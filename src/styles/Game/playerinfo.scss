@@ -1,0 +1,27 @@
+.player-info {
+  display: flex;
+  flex-direction: row; /* 가로 방향으로 배치 */
+  align-items: center; /* 세로 정렬 가운데 */
+  text-align: left; /* 텍스트는 왼쪽 정렬 */
+  gap: 10px; /* 이미지와 텍스트 사이 간격 */
+  padding: 0px; /* 전체 박스의 내부 여백 */
+}
+
+.player-info-image {
+  width: 50px;
+  height: 50px; /* 추가로 높이를 명시적으로 설정 */
+  border-radius: 50%; /* 이미지를 둥글게 표시 */
+  object-fit: cover; /* 이미지가 비율을 유지하며 잘리거나 왜곡되지 않도록 설정 */
+}
+
+.player-info-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.player-info-score {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
