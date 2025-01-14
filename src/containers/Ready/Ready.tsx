@@ -1,8 +1,8 @@
 import React from 'react';
 import { CreateBtn, InviteBtn, PlayBtn } from '../../components/TextBtn.tsx';
-import '../../styles/home.scss';
-import { UserList } from './UserList.tsx';
 import { Link } from 'react-router-dom';
+import { UserList } from './UserList.tsx';
+import '../../styles/ready.scss';
 
 function Ready() {
   return (
