@@ -1,11 +1,47 @@
+.header-button {
+  position: absolute; /* 화면 기준으로 배치 */
+  top: 10px; /* 화면 상단 여백 */
+  right: 20px; /* 화면 오른쪽 여백 */
+  display: flex; /* 플렉스 컨테이너로 설정 */
+  flex-direction: row; /* 버튼들을 가로로 배치 */
+  align-items: row; /* 세로 정렬 중앙 */
+  gap: 20px; /* 버튼 간 간격 */
+  z-index: 1000; /* 다른 요소 위로 배치 */
+
+  .setting-icon {
+    width: 250px; /* 버튼 크기 조정 */
+    height: auto; /* 비율 유지 */
+    cursor: pointer;
+    margin-right: 300px;
+    margin-top: 35px;
+  }
+
+  .quit-icon {
+    width: 225px; /* 버튼 크기 조정 */
+    height: auto; /* 비율 유지 */
+    cursor: pointer;
+    margin-right: 60px;
+    margin-top: 5px;
+  }
+}
+
+.ready {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%; /* 부모 요소의 너비를 100%로 제한 */
+  max-width: 100%; /* 최대 너비를 설정 */
+  box-sizing: border-box; /* 패딩 포함 */
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
 .user-list {
   display: grid;
-  grid-template-columns: repeat(4, 380px); /* 4개의 열 */
-  grid-template-rows: repeat(2, 150px); /* 2개의 행 */
-  gap: 40px 30px; /* 열 간격 20px, 행 간격 30px */
-  justify-items: start; /* 열 아이템을 왼쪽 정렬 */
-  align-items: start; /* 행 아이템을 위쪽 정렬 */
-  padding: 0;
+  grid-template-columns: repeat(4, 380px);
+  grid-template-rows: repeat(2, 180px);
+  gap: 40px 30px;
+  padding: 0px;
 }
 
 .user {
@@ -14,7 +50,7 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background-color: #f3f5d0; /* 박스 색상 */
+  background-color: #f2f3dd;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -23,19 +59,107 @@
 }
 
 .empty-box {
-  background-color: #f3f5d0;
+  background-color: #f2f3dd;
   box-shadow: none;
   width: 370px;
   height: 150px;
 }
 
 .user-name {
-  font-size: 1.9rem; /* User 이름 폰트 크기 */
+  font-size: 1.8rem;
   font-weight: bold;
+  padding: 2px;
+  background-color: #f9b941;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .user-status {
-  font-size: 1.5rem; /* Ready/Not Ready 상태 폰트 크기 */
+  font-size: 1.5rem;
   color: #555;
-  margin-top: 5px;
+  margin-top: 0px;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 100%;
+  margin-top: -80px;
+}
+
+.chat-box {
+  flex: 3.6;
+  background-color: #fff6c9;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  max-width: 100%;
+}
+
+.chat-messages {
+  flex: 2;
+  height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.chat-input-container {
+  display: flex;
+}
+
+.chat-input {
+  flex: 2;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.send-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #97d24b;
+  color: white;
+  cursor: pointer;
+}
+
+.settings-play-container {
+  display: flex;
+  flex-direction: column; /* 방설정과 PLAY 버튼을 세로로 배치 */
+  align-items: center;
+  gap: 10px; /* 방설정과 PLAY 버튼 간격 */
+  flex: 1.5;
+  margin-top: -50px;
+}
+
+.room-settings {
+  flex: none;
+  width: 300px;
+  min-height: auto;
+  flex-direction: column; /* 내부 요소 세로 정렬 */
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  text-align: center;
+  padding: 10px; /* 내부 여백 추가 */
+  font-size: 1.1rem; /* 일반 텍스트 크기 */
+  font-weight: normal; /* 기본 두께 */
+  text-align: center; /* 텍스트를 왼쪽 정렬 */
+  line-height: 1; /* 줄 간격 조정 */
+  margin-top: 40px;
+}
+
+.play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: -30px;
 }
