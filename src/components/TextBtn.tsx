@@ -24,6 +24,15 @@ import I_redpink from '../assets/alpabet_redpink/I.png';
 import N_redpink from '../assets/alpabet_redpink/N.png';
 import G_redpink from '../assets/alpabet_redpink/G.png';
 
+import S_darkblue from '../assets/alpabet_darkblue/S.png';
+import E_darkblue from '../assets/alpabet_darkblue/E.png';
+import T_darkblue from '../assets/alpabet_darkblue/T.png';
+import I_darkblue from '../assets/alpabet_darkblue/I.png';
+import N_darkblue from '../assets/alpabet_darkblue/N.png';
+import G_darkblue from '../assets/alpabet_darkblue/G.png';
+import Q_darkblue from '../assets/alpabet_darkblue/Q.png';
+import U_darkblue from '../assets/alpabet_darkblue/U.png';
+
 import '../styles/text.scss';
 
 //play btn
@@ -94,6 +103,31 @@ export const RoomSettingBtn: React.FC = () => {
       <img src={I_redpink} className="alpabet" />
       <img src={N_redpink} className="alpabet" />
       <img src={G_redpink} className="alpabet" />
+    </div>
+  );
+};
+
+export const SettingBtn: React.FC = () => {
+  return (
+    <div className="dark_text-btn">
+      <img src={S_darkblue} className="alpabet" />
+      <img src={E_darkblue} className="alpabet" />
+      <img src={T_darkblue} className="alpabet" />
+      <img src={T_darkblue} className="alpabet" />
+      <img src={I_darkblue} className="alpabet" />
+      <img src={N_darkblue} className="alpabet" />
+      <img src={G_darkblue} className="alpabet" />
+    </div>
+  );
+};
+
+export const QuitBtn: React.FC = () => {
+  return (
+    <div className="dark_text-btn">
+      <img src={Q_darkblue} className="alpabet" />
+      <img src={U_darkblue} className="alpabet" />
+      <img src={I_darkblue} className="alpabet" />
+      <img src={T_darkblue} className="alpabet" />
     </div>
   );
 };

@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  CreateBtn,
-  InviteBtn,
-  PlayBtn,
-  RoomsBtn,
-} from '../../components/TextBtn.tsx';
+import { CreateBtn, PlayBtn, RoomsBtn } from '../../components/TextBtn.tsx';
 import '../../styles/home.scss';
 import { RoomList } from './RoomList.tsx';
 import { Link } from 'react-router-dom';

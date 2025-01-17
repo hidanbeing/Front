@@ -25,13 +25,13 @@ const filledUserList = [
   })),
 ];
 
-export const UserList: React.FC = () => {
+export default function UserList() {
   return (
-    <div className="user-list">
+    <div className="ready-user-list">
       {filledUserList.map(user => (
         <div
           key={user.id}
-          className={`user ${user.character === null ? 'empty-box' : ''}`}
+          className={`ready-user ${user.character === null ? 'ready-empty-box' : ''}`}
         >
           {user.character !== null ? (
             <>
@@ -50,4 +50,4 @@ export const UserList: React.FC = () => {
       ))}
     </div>
   );
-};
+}
