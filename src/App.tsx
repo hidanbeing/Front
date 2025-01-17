@@ -1,26 +1,20 @@
-import React from 'react';
-import DrawingContainer from './containers/DrawingContainer.tsx';
+import React, { useState } from 'react';
 import AppRoutes from './routes/AppRoutes.tsx';
+import { UserContext } from './contexts/UserContext.ts';
 
-const App: React.FC = () => {
-  return (
-    // <div style={styles.container}>
-    //   {/* 그림판만 렌더링 */}
-    //   <DrawingContainer />
-    // </div>
-    <AppRoutes />
-  );
+type User = {
+  name: string;
+  characterNum: number;
 };
 
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    height: '100vh',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f9f9f9',
-  },
+const App: React.FC = () => {
+  const [user, setUser] = useState<User>({ name: '', characterNum: 0 });
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <AppRoutes />
+    </UserContext.Provider>
+  );
 };
 
 export default App;
