@@ -1,17 +1,35 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 import '../../styles/box.scss';
+import { UserContext } from '../../contexts/UserContext.ts';
 
 function CharacterBox() {
+  const context = useContext(UserContext);
+
+  if (!context) {
+    throw new Error('CharacterBox must be used within a UserProvider');
+  }
+
+  const { user, setUser } = context; // 이제 context가 undefined가 아님을 보장
+
   const [character, setCharacter] = useState(0);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newName = e.target.value;
+    setUser({ ...user, name: newName });
+  };
+
   const changeCharacterPlus = () => {
-    setCharacter((character + 1) % 6);
+    let num = (character + 1) % 6;
+    setCharacter(num);
+    setUser({ ...user, characterNum: num });
   };
 
   const changeCharacterMinus = () => {
-    setCharacter(character === 0 ? 5 : character - 1);
+    let num = character === 0 ? 5 : character - 1;
+    setCharacter(num);
+    setUser({ ...user, characterNum: num });
   };
 
   return (
@@ -46,7 +64,12 @@ function CharacterBox() {
         </button>
       </div>
       <div className="input-div">
-        <input className="input" placeholder="USERNAME" />
+        <input
+          className="input"
+          placeholder="USERNAME"
+          value={user.name}
+          onChange={handleInputChange}
+        />
       </div>
     </div>
   );
