@@ -5,6 +5,7 @@ import '../../styles/home.scss';
 import { Link } from 'react-router-dom';
 import CharacterBox from './CharacterBox.tsx';
 import { UserContext } from '../../contexts/UserContext.ts';
+import axios from 'axios';
 
 function Home() {
   const context = useContext(UserContext);
@@ -18,6 +19,14 @@ function Home() {
   const onClick = () => {
     console.log(user);
     //서버에 user 넘기기
+    axios
+      .post('http://35.216.51.107:8080/api/v1/user', {
+        characterId: user.characterNum,
+        userName: user.name,
+      })
+      .then(function (response) {
+        console.log(response);
+      });
   };
 
   return (
