@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import TitleLogo from '../../components/TitleLogo.tsx';
 import { PlayBtn } from '../../components/TextBtn.tsx';
 import '../../styles/home.scss';
@@ -14,7 +14,7 @@ function Home() {
     throw new Error('Home must be used within a UserProvider');
   }
 
-  const { user } = context;
+  const { user, setUser } = context;
 
   const onClick = () => {
     console.log(user);
@@ -26,8 +26,22 @@ function Home() {
       })
       .then(function (response) {
         console.log(response);
+
+        //UserContext에 userId 추가, data 속 data ...
+        const { userId } = response.data.data;
+
+        setUser({
+          ...user,
+          userId,
+        });
+
+        console.log('서버가 보낸 유저 아이디 UserID:', userId);
       });
   };
+
+  useEffect(() => {
+    console.log('업데이트된 UserContext:', user);
+  }, [user]); //user 상태 변경될 때마다 반복
 
   return (
     <div className="home">
