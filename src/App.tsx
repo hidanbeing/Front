@@ -5,10 +5,15 @@ import { UserContext } from './contexts/UserContext.ts';
 type User = {
   name: string;
   characterNum: number;
+  userId: number;
 };
 
 const App: React.FC = () => {
-  const [user, setUser] = useState<User>({ name: '', characterNum: 0 });
+  const [user, setUser] = useState<User>({
+    name: '',
+    characterNum: 0,
+    userId: 0,
+  });
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
