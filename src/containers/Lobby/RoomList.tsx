@@ -9,17 +9,21 @@ type Room = {
   maxPlayer: number;
   curPlayer: number;
   privateRoom: boolean;
+  subject: string;
 };
 
 /*
-[{
-"id":1,
-"name":"Game Room 1",
-"roomState":"PLAY",
-"maxPlayer":4,
-"curPlayer":1,
-"privateRoom":false
-}]
+[
+  {
+    "id": 0,
+    "name": "string",
+    "roomState": "WAIT",
+    "maxPlayer": 0,
+    "curPlayer": 0,
+    "privateRoom": true,
+    "subject": "FRUIT"
+  }
+]
 */
 
 export const RoomList: React.FC = () => {
