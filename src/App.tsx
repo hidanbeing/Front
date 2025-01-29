@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AppRoutes from './routes/AppRoutes.tsx';
 import { UserContext } from './contexts/UserContext.ts';
+import { WebSocketProvider } from './contexts/WebSocketContext.tsx';
 
 type User = {
   name: string;
@@ -16,9 +17,11 @@ const App: React.FC = () => {
   });
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <AppRoutes />
-    </UserContext.Provider>
+    <WebSocketProvider>
+      <UserContext.Provider value={{ user, setUser }}>
+        <AppRoutes />
+      </UserContext.Provider>
+    </WebSocketProvider>
   );
 };
 
