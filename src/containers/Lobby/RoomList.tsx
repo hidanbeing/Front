@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import SockJS from 'sockjs-client';
 import { UserContext } from '../../contexts/UserContext.ts';
-import { Client } from '@stomp/stompjs';
+import { useWebSocket } from '../../contexts/WebSocketContext.tsx';
 
 type Room = {
   id: number;
@@ -16,6 +15,7 @@ type Room = {
 };
 
 export const RoomList: React.FC = () => {
+  const { stompClient } = useWebSocket(); //WebSocketContext에서 stompClient 가져오기
   const context = useContext(UserContext);
   const { user } = context;
   const userId = user.userId;
@@ -24,50 +24,47 @@ export const RoomList: React.FC = () => {
   //타입으로 선언한 각 방에 대한 Room 파라미터를 setRooms를 통해 rooms[] 배열에 넣어주기기
   const [rooms, setRooms] = useState<Room[] | undefined>(undefined);
 
-  //웹소켓 연결
   useEffect(() => {
-    const socket = new SockJS('http://35.216.51.107:8080/ws');
-    const stompClient = new Client({
-      webSocketFactory: () => socket,
-      reconnectDelay: 5000, //재연결 시도 간격
-    });
+    console.log('stompClient 상태:', stompClient);
 
-    stompClient.onConnect = frame => {
-      console.log('WebSocket connected:', frame);
+    if (stompClient && stompClient.connected) {
+      console.log('stompClient 연결됨!!!!');
 
       //구독: 개인 큐 (/queue/user/{userId})
-      stompClient.subscribe(`/queue/user/${userId}`, message => {
-        console.log('Message from /queue/user:', message.body);
-      });
+      if (stompClient) {
+        stompClient.subscribe(`/queue/user/${userId}`, message => {
+          console.log('Message from /queue/user:', message.body);
+        });
 
-      //구독: 로비 (/topic/lobby)
-      //게임 대기방의 경우 해당 방에 들어가자마자 로비에 해당하는 것을 빼고 방에 대한 구독을 주면 됨
-      //따라서 (topic/room/{roomId})는 게임 대기방 들어가서 구독 설정하기
-      stompClient.subscribe('/topic/lobby', message => {
-        console.log('Message from /topic/lobby:', message.body);
-      });
-    };
+        //구독: 로비 (/topic/lobby)
+        //게임 대기방의 경우 해당 방에 들어가자마자 로비에 해당하는 것을 빼고 방에 대한 구독을 주면 됨
+        //따라서 (topic/room/{roomId})는 게임 대기방 들어가서 구독 설정하기
+        stompClient.subscribe('/topic/lobby', message => {
+          console.log('Message from /topic/lobby:', message.body);
+        });
 
-    //에러났을 경우
-    stompClient.onStompError = frame => {
-      console.error('STOMP error:', frame);
-    };
+        //테스트...
+        stompClient.publish({
+          destination: '/topic/lobby',
+          body: JSON.stringify({ msg: '테스트 메시지!' }),
+        });
+      }
 
-    //웹소켓켓 연결 활성화
-    stompClient.activate();
+      console.log('stompClient.subscribe 실행됨!!!');
+    }
+  }, [stompClient, userId]);
 
-    //컴포넌트 언마운트 시 웹소켓 연결 해제
-    return () => {
+  //컴포넌트 언마운트 시 웹소켓 연결 해제
+  /* return () => {
       if (stompClient) {
         stompClient.deactivate();
         console.log('WebSocket Disconnected');
-      }
-    };
-  }, [userId]);
+      } 
+    }; */
 
   //방의 정보 가져오기
   useEffect(() => {
-    axios.get('http://35.216.51.107:8080/api/room').then(response => {
+    axios.get('http://35.216.51.107:8080/api/v1/room').then(response => {
       setRooms(response.data);
       console.log(response.data);
     });
