@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext.ts';
 import { useWebSocket } from '../../contexts/WebSocketContext.tsx';
+import { useNavigate } from 'react-router-dom';
 
 type Room = {
   id: number;
@@ -19,16 +20,17 @@ export const RoomList: React.FC = () => {
   const context = useContext(UserContext);
   const { user } = context;
   const userId = user.userId;
+  const navigate = useNavigate(); //Link 대신 쓴 페이지 이동 함수
 
   //여기서 rooms는 조회된 방들 배열
-  //타입으로 선언한 각 방에 대한 Room 파라미터를 setRooms를 통해 rooms[] 배열에 넣어주기기
+  //타입으로 선언한 각 방에 대한 Room 파라미터를 setRooms를 통해 rooms[] 배열에 넣어주기
   const [rooms, setRooms] = useState<Room[] | undefined>(undefined);
 
   useEffect(() => {
     console.log('stompClient 상태:', stompClient);
 
     if (stompClient && stompClient.connected) {
-      console.log('stompClient 연결됨!!!!');
+      console.log('stompClient 연결 완료');
 
       //구독: 개인 큐 (/queue/user/{userId})
       if (stompClient) {
@@ -43,11 +45,11 @@ export const RoomList: React.FC = () => {
           console.log('Message from /topic/lobby:', message.body);
         });
 
-        //테스트...
-        stompClient.publish({
-          destination: '/topic/lobby',
-          body: JSON.stringify({ msg: '테스트 메시지!' }),
-        });
+        //테스트... 구독 요청은 이런 식으로 보내면 됨
+        // stompClient.publish({
+        //   destination: '/topic/lobby',
+        //   body: JSON.stringify({ msg: '테스트 메시지!' }),
+        // });
       }
 
       console.log('stompClient.subscribe 실행됨!!!');
@@ -69,6 +71,11 @@ export const RoomList: React.FC = () => {
       console.log(response.data);
     });
   }, []);
+
+  const handleRoomClick = (room: Room) => {
+    navigate(`/ready/${room.id}`, { state: { room } }); //`state`를 전달하는 올바른 방법
+    //밑의 Link 밑에 state를 전달하려고 하니 타입스크립트에서 지원을 안하는 방식이라 하여 navigate 사용
+  };
 
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 6;
@@ -93,17 +100,19 @@ export const RoomList: React.FC = () => {
     <div>
       <div className="room-list">
         {currentRooms.map(room => (
-          <Link to="/ready">
-            <div key={room.id} className="room">
-              <div className="room-name">{room.name}</div>
-              <div className="room-content">
-                <div className="room-player">
-                  {room.curPlayer}/{room.maxPlayer}
-                </div>
-                <div className="room-status">{room.roomState}</div>
+          <div
+            key={room.id}
+            className="room"
+            onClick={() => handleRoomClick(room)}
+          >
+            <div className="room-name">{room.name}</div>
+            <div className="room-content">
+              <div className="room-player">
+                {room.curPlayer}/{room.maxPlayer}
               </div>
+              <div className="room-status">{room.roomState}</div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
       <div className="pagination">

@@ -13,7 +13,7 @@ function RoomSetting() {
   const { user } = context;
   const userId = user.userId;
 
-  // 방 설정 상태
+  //방 설정 상태(초기상태)
   const [roomName, setRoomName] = useState('');
   const [isPasswordEnabled, setIsPasswordEnabled] = useState(false);
   const [password, setPassword] = useState('');

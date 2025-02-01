@@ -36,7 +36,7 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({
     /*
     <forceUpdate를 작성한 이유> 
     콘솔로그에 useEffect가 실행이 안되는 것으로 떠서
-    강제적으로 라도 useEffect를 실행하기 위함
+    강제적으로라도 useEffect를 실행하기 위함
     사실 얘가 실행이 안돼도 웹소켓 연결은 정상 작동해서 큰 의미는 없는데
     디버깅 위해서...
     */
